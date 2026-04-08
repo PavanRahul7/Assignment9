@@ -75,35 +75,40 @@ All scripts are in the `sql/` folder and should be run in pgAdmin against `fasta
 ## pgAdmin Screenshots
 
 ### Step A — Create Tables
-![Step A - Create Tables](screenshots/A_create_tables.png)
+
+<img width="1919" height="981" alt="Screenshot 2026-04-07 200757" src="https://github.com/user-attachments/assets/c9a8bb66-a8fb-4a5c-bc09-4a2405d04ea9" />
 
 Runs `A_create_tables.sql` in pgAdmin. The error `relation "users" already exists` is expected — `init.sql` automatically created the tables when the PostgreSQL container first started, demonstrating that the Docker Compose setup correctly initializes the schema on startup.
 
 ---
 
 ### Step B — Insert Records
-![Step B - Insert Records](screenshots/B_insert_records.png)
+
+<img width="1919" height="995" alt="Screenshot 2026-04-07 200559" src="https://github.com/user-attachments/assets/279a09db-6da5-4cc9-8a9e-04cc09e34b1e" />
 
 Inserts users `alice` and `bob`, then inserts 3 calculation records (`add`, `divide`, `multiply`) linked via `user_id` foreign key. Query returned successfully in 67 ms.
 
 ---
 
 ### Step C — Query Data (JOIN)
-![Step C - Join Query](screenshots/C_join_query.png)
+<img width="1918" height="964" alt="Screenshot 2026-04-07 200042" src="https://github.com/user-attachments/assets/64810b65-b9f5-4368-9b55-f824aebd63da" />
+
 
 Shows the JOIN between `users` and `calculations` returning 6 rows with username, operation, operands, and result.
 
 ---
 
 ### Step D — Update Record
-![Step D - Update Record](screenshots/D_update_record.png)
+<img width="1540" height="946" alt="Screenshot 2026-04-07 200112" src="https://github.com/user-attachments/assets/c74c9dd6-3f3b-4f62-a755-0803b1469a08" />
+
 
 Updates `result` of calculation `id=1` from `5` to `6`. The verification SELECT confirms the change.
 
 ---
 
 ### Step E — Delete Record
-![Step E - Delete Record](screenshots/E_delete_record.png)
+<img width="1840" height="983" alt="Screenshot 2026-04-07 200137" src="https://github.com/user-attachments/assets/b05a90ef-865f-44c8-a9dd-05bab79380c6" />
+
 
 Deletes calculation `id=2` (the `divide` operation). The verification SELECT shows 5 remaining rows.
 
