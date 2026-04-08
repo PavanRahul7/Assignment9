@@ -46,13 +46,14 @@ jobs:
           python -m venv venv
           source venv/bin/activate
           pip install -r requirements.txt
+          playwright install --with-deps chromium
 
       - name: Run tests
         env:
           DATABASE_URL: postgresql://postgres:postgres@localhost:5432/fastapi_db
         run: |
           source venv/bin/activate
-          pytest tests/ -v --tb=short
+          pytest tests/unit/ tests/integration/ -v --tb=short
 
   build:
     needs: test
